@@ -3,14 +3,36 @@ import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../domain/entities/character.dart';
+import 'character_information_popup.dart';
+
 class CharactersListWidget extends StatelessWidget {
   const CharactersListWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+          width: MediaQuery.of(context).size.width * 0.60,
+          child: const Column(
+            children: [
+              Text('Casas'),
+            ],
+          )),
       appBar: AppBar(
-        title: const Text('SonserinaNão.App'),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        centerTitle: true,
+        title: const Text(
+          'NotSlytherin App',
+          style: TextStyle(
+            fontFamily: 'HarryPotter',
+            color: Colors.white,
+            fontSize: 36.0,
+          ),
+        ),
+        backgroundColor: const Color(0xFFAE0001),
       ),
       body: BlocBuilder<CharactersBloc, CharactersState>(
         builder: (context, state) {
@@ -23,11 +45,25 @@ class CharactersListWidget extends StatelessWidget {
                 itemCount: state.characters.length,
                 itemBuilder: (context, index) {
                   final character = state.characters[index];
-                  return ListTile(
-                    title: Text(character.name!),
-                    subtitle: Text(character.house!),
-                    leading: CircleAvatar(
-                      backgroundImage: NetworkImage(character.image!),
+                  return InkWell(
+                    onTap: () => showPopUp(context, character),
+                    child: ListTile(
+                      title: Text(
+                        character.name!,
+                        style: const TextStyle(
+                            fontFamily: 'RobotoSlab', fontSize: 16.0,
+                            fontWeight: FontWeight.normal),
+                      ),
+                      subtitle: Text(
+                        character.house!,
+                        style: const TextStyle(
+                          fontFamily: 'RobotoSlab',
+                          fontWeight: FontWeight.w400
+                        ),
+                      ),
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage(character.image!),
+                      ),
                     ),
                   );
                 });
@@ -41,5 +77,13 @@ class CharactersListWidget extends StatelessWidget {
         },
       ),
     );
+  }
+
+  void showPopUp(BuildContext context, Character character) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CharacterInformationPopup(character: character);
+        });
   }
 }
