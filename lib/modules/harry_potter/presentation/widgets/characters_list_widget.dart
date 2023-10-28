@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/entities/character.dart';
 import 'character_information_popup.dart';
+import 'drawer_widget.dart';
 
 class CharactersListWidget extends StatelessWidget {
   const CharactersListWidget({super.key});
@@ -12,13 +13,7 @@ class CharactersListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-          width: MediaQuery.of(context).size.width * 0.60,
-          child: const Column(
-            children: [
-              Text('Casas'),
-            ],
-          )),
+      drawer: const DrawerWidget(),
       appBar: AppBar(
         iconTheme: const IconThemeData(
           color: Colors.white,
