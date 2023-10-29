@@ -74,6 +74,8 @@ flutter:
     - assets/witch_hat.jpg
     - assets/hp_glasses.png
     - assets/custom_divider.png
+    - assets/wand.png
+    - assets/wand_2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

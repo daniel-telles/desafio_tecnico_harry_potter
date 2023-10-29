@@ -3,10 +3,10 @@ import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../domain/entities/character.dart';
-import '../widgets/character_information_popup.dart';
-import '../widgets/characters_card_widget.dart';
-import '../widgets/drawer_widget.dart';
+import '../../../domain/entities/character.dart';
+import 'widgets/character_information_popup.dart';
+import 'widgets/characters_card_widget.dart';
+import '../../widgets/drawer_widget/drawer_widget.dart';
 
 class CharactersListPage extends StatelessWidget {
   const CharactersListPage({super.key});
@@ -53,6 +53,15 @@ class CharactersListPage extends StatelessWidget {
             return Container();
           }
         },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'All'),
+          // BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Grifinoria'),
+          // BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Sonserina'),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Cornival'),
+          BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Lufa-Lufa'),
+        ],
       ),
     );
   }

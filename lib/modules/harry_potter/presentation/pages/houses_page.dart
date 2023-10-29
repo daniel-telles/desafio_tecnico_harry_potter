@@ -12,7 +12,7 @@ class HousesPage extends StatelessWidget {
         ),
         centerTitle: true,
         title: const Text(
-          'NotSlytherin App',
+          'Houses',
           style: TextStyle(
             fontFamily: 'HarryPotter',
             color: Colors.white,
@@ -33,7 +33,10 @@ class HousesPage extends StatelessWidget {
                   Image.asset(
                     'assets/houses/Grifinoria.png',
                   ),
-                  const Text('Grifinória'),
+                  Text(
+                    'Grifinória',
+                    style: housesNameTextStyle,
+                  ),
                 ],
               ),
               Column(
@@ -41,7 +44,10 @@ class HousesPage extends StatelessWidget {
                   Image.asset(
                     'assets/houses/Sonserina.png',
                   ),
-                  const Text('Sonserina'),
+                  Text(
+                    'Sonserina',
+                    style: housesNameTextStyle,
+                  ),
                 ],
               ),
               Column(
@@ -49,7 +55,10 @@ class HousesPage extends StatelessWidget {
                   Image.asset(
                     'assets/houses/Corvinal.png',
                   ),
-                  const Text('Cornival'),
+                  Text(
+                    'Cornival',
+                    style: housesNameTextStyle,
+                  ),
                 ],
               ),
               Column(
@@ -57,7 +66,10 @@ class HousesPage extends StatelessWidget {
                   Image.asset(
                     'assets/houses/Lufa-Lufa.png',
                   ),
-                  const Text('Lufa-Lufa'),
+                  Text(
+                    'Lufa-Lufa',
+                    style: housesNameTextStyle,
+                  ),
                 ],
               ),
             ],
@@ -67,3 +79,6 @@ class HousesPage extends StatelessWidget {
     );
   }
 }
+
+TextStyle get housesNameTextStyle =>
+    const TextStyle(fontFamily: 'RobotoSlab', fontSize: 16.0);
