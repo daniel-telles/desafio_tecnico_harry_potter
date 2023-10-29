@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
 
-class HousesPage extends StatelessWidget {
-  const HousesPage({super.key});
+class MenuPage extends StatelessWidget {
+  const MenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        centerTitle: true,
-        title: const Text(
-          'NotSlytherin App',
-          style: TextStyle(
-            fontFamily: 'HarryPotter',
-            color: Colors.white,
-            fontSize: 36.0,
-          ),
-        ),
-        backgroundColor: const Color(0xFFAE0001),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 2.0),
-        child: Container(
-          child: GridView.count(
-            childAspectRatio: 0.6,
-            crossAxisCount: 2,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Menu'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
                 children: [
@@ -36,6 +21,7 @@ class HousesPage extends StatelessWidget {
                   const Text('Grifinória'),
                 ],
               ),
+              spaceBetweenContainers,
               Column(
                 children: [
                   Image.asset(
@@ -44,6 +30,11 @@ class HousesPage extends StatelessWidget {
                   const Text('Sonserina'),
                 ],
               ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Column(
                 children: [
                   Image.asset(
@@ -52,6 +43,7 @@ class HousesPage extends StatelessWidget {
                   const Text('Cornival'),
                 ],
               ),
+              spaceBetweenContainers,
               Column(
                 children: [
                   Image.asset(
@@ -62,8 +54,10 @@ class HousesPage extends StatelessWidget {
               ),
             ],
           ),
-        ),
+        ],
       ),
     );
   }
 }
+
+SizedBox get spaceBetweenContainers => const SizedBox(width: 15.0);

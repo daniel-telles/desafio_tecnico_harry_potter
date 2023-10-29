@@ -1,6 +1,6 @@
 import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/bloc/bloc/character_bloc.dart';
 import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/bloc/bloc/character_event.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/widgets/characters_list_widget.dart';
+import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/pages/characters_list_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       home: BlocProvider(
           create: (context) => charactersBloc..add(FetchCharactersEvent()),
-          child: const CharactersListWidget()),
+          child: const CharactersListPage()),
     );
   }
 }

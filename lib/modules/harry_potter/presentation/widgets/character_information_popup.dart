@@ -12,9 +12,9 @@ class CharacterInformationPopup extends StatelessWidget {
     return SizedBox(
       width: MediaQuery.of(context).size.width * 0.05,
       child: AlertDialog(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.white,
         title: Center(
-          child: Container(
+          child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.30,
             height: MediaQuery.of(context).size.height * 0.50,
             child: Column(
@@ -22,7 +22,8 @@ class CharacterInformationPopup extends StatelessWidget {
                 SizedBox(
                   child: Image.network(character.image!),
                 ),
-                Text(character.name!),
+                Image.asset('assets/custom_divider.png'),
+                // Text(character.name!),
                 Text('Ator: ${character.actor!}'),
                 Text(character.patronus!),
               ],

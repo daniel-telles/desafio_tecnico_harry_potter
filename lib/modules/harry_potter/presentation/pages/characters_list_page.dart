@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../domain/entities/character.dart';
-import 'character_information_popup.dart';
-import 'drawer_widget.dart';
+import '../widgets/character_information_popup.dart';
+import '../widgets/characters_card_widget.dart';
+import '../widgets/drawer_widget.dart';
 
-class CharactersListWidget extends StatelessWidget {
-  const CharactersListWidget({super.key});
+class CharactersListPage extends StatelessWidget {
+  const CharactersListPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,26 +42,8 @@ class CharactersListWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final character = state.characters[index];
                   return InkWell(
-                    onTap: () => showPopUp(context, character),
-                    child: ListTile(
-                      title: Text(
-                        character.name!,
-                        style: const TextStyle(
-                            fontFamily: 'RobotoSlab', fontSize: 16.0,
-                            fontWeight: FontWeight.normal),
-                      ),
-                      subtitle: Text(
-                        character.house!,
-                        style: const TextStyle(
-                          fontFamily: 'RobotoSlab',
-                          fontWeight: FontWeight.w400
-                        ),
-                      ),
-                      leading: CircleAvatar(
-                        backgroundImage: NetworkImage(character.image!),
-                      ),
-                    ),
-                  );
+                      onTap: () => showPopUp(context, character),
+                      child: CharactersCardWidget(character: character));
                 });
           } else if (state is CharactersErrorState) {
             return Center(
