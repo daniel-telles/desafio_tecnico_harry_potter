@@ -6,7 +6,7 @@ class GetCharacterUsecase {
 
   GetCharacterUsecase({required this.characterRepository});
 
-  Future<List<Character>> call() async {
-    return await characterRepository.getCharacters();
+  Future<List<Character>> call({String? house}) async {
+    return await characterRepository.getCharacters(house: house);
   }
 }

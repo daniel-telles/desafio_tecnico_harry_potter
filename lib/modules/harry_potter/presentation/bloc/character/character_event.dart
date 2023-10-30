@@ -5,4 +5,8 @@ abstract class CharactersEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchCharactersEvent extends CharactersEvent {}
+class FetchCharactersEvent extends CharactersEvent {
+  final String? house;
+
+  FetchCharactersEvent({this.house});
+}

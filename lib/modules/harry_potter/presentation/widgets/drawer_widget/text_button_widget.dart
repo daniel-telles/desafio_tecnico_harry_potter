@@ -19,7 +19,7 @@ class TextButtonWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Icon(icon,
-          color: Colors.black),
+          color: const Color(0xFFEEBA30)),
           const SizedBox(
             width: 10.0,
           ),
@@ -34,6 +34,6 @@ class TextButtonWidget extends StatelessWidget {
 }
 
 TextStyle drawerTextStyle(
-    {double fontSize = 16.0, Color? color = Colors.black}) {
+    {double fontSize = 16.0, Color? color = const Color(0xFFEEBA30)}) {
   return TextStyle(fontFamily: 'RobotoSlab', fontSize: fontSize, color: color);
 }

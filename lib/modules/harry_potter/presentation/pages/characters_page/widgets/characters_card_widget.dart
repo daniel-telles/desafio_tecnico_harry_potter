@@ -9,6 +9,7 @@ class CharactersCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.yellow[100],
       child: Theme(
         data: Theme.of(context).copyWith(
           dividerColor: Colors.transparent,

@@ -9,7 +9,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
   CharacterRepositoryImpl({required this.characterRemoteDatasource});
 
   @override
-  Future<List<CharacterDTO>> getCharacters() async {
-    return characterRemoteDatasource.getCharacters();
+  Future<List<CharacterDTO>> getCharacters({String? house}) async {
+    return characterRemoteDatasource.getCharacters(house: house);
   }
 }

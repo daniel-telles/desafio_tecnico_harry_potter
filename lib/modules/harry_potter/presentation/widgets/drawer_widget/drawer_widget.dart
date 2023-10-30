@@ -1,5 +1,4 @@
 import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/pages/characters_page/characters_page.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/pages/menu_page/menu_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../pages/houses_page.dart';
@@ -11,7 +10,7 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: const Color(0xFFEDB935),
+        backgroundColor: const Color(0xFF750001),
         width: MediaQuery.of(context).size.width * 0.60,
         child: ListView(
           children: [
@@ -32,14 +31,9 @@ class DrawerWidget extends StatelessWidget {
                   ),
                   Text('Your house', style: drawerTextStyle(fontSize: 12.0)),
                   const SizedBox(height: 22.0),
-                  Image.asset('assets/custom_divider.png'),
+                  Image.asset('assets/custom_divider.png',
+                      color: Color(0xFFEEBA30)),
                   const SizedBox(height: 20.0),
-                  TextButtonWidget(
-                    sectionText: 'Menu',
-                    icon: Icons.menu_book_rounded,
-                    route: MaterialPageRoute(
-                        builder: (context) => const MenuPage()),
-                  ),
                   TextButtonWidget(
                     sectionText: 'Characters',
                     icon: Icons.person_3_rounded,
@@ -58,7 +52,7 @@ class DrawerWidget extends StatelessWidget {
                     sectionText: 'Spells',
                     icon: Icons.bolt,
                     route: MaterialPageRoute(
-                        builder: (context) => const MenuPage()),
+                        builder: (context) => const HousesPage()),
                   ),
                 ],
               ),
@@ -69,6 +63,6 @@ class DrawerWidget extends StatelessWidget {
 }
 
 TextStyle drawerTextStyle(
-    {double fontSize = 16.0, Color? color = Colors.black}) {
+    {double fontSize = 16.0, Color? color = const Color(0xFFEEBA30)}) {
   return TextStyle(fontFamily: 'RobotoSlab', fontSize: fontSize, color: color);
 }

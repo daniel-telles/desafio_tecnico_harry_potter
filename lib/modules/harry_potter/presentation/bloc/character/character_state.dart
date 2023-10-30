@@ -4,12 +4,16 @@ import 'package:equatable/equatable.dart';
 abstract class CharactersState extends Equatable {
   final List<Character>? characters;
 
-  const CharactersState({ this.characters});
+  const CharactersState({this.characters});
   @override
   List<Object> get props => [];
 }
 
-class CharactersLoadingState extends CharactersState {}
+class CharactersLoadingState extends CharactersState {
+  final String? house;
+
+  const CharactersLoadingState({this.house});
+}
 
 class CharactersSuccessState extends CharactersState {
   const CharactersSuccessState({required this.characters});
