@@ -20,12 +20,12 @@ class CharacterInformationPopup extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  child: Image.network(character.image!),
+                  child: Image.network(character.image),
                 ),
                 Image.asset('assets/custom_divider.png'),
-                // Text(character.name!),
-                Text('Ator: ${character.actor!}'),
-                Text(character.patronus!),
+                // Text(character.name),
+                Text('Ator: ${character.actor}'),
+                Text(character.patronus),
               ],
             ),
           ),

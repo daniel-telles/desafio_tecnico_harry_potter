@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 
+import '../../../../core/constants/hp_api_url.dart';
 import '../models/character_model.dart';
 
 class CharacterRemoteDatasource {
@@ -8,8 +9,9 @@ class CharacterRemoteDatasource {
   CharacterRemoteDatasource(this.dio);
 
   Future<List<CharacterDTO>> getCharacters() async {
+    
     final response =
-        await dio.get('https://hp-api.onrender.com/api/characters');
+        await dio.get(harryPotterAPIUrl);
     return (response.data as List)
         .map((character) => CharacterDTO.fromJson(character))
         .toList();

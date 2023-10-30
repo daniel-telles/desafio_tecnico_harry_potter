@@ -2,6 +2,9 @@ import 'package:desafio_tecnico_harry_potter/modules/harry_potter/domain/entitie
 import 'package:equatable/equatable.dart';
 
 abstract class CharactersState extends Equatable {
+  final List<Character>? characters;
+
+  const CharactersState({ this.characters});
   @override
   List<Object> get props => [];
 }
@@ -9,7 +12,7 @@ abstract class CharactersState extends Equatable {
 class CharactersLoadingState extends CharactersState {}
 
 class CharactersSuccessState extends CharactersState {
-  CharactersSuccessState({required this.characters});
+  const CharactersSuccessState({required this.characters});
 
   final List<Character> characters;
 
@@ -18,7 +21,7 @@ class CharactersSuccessState extends CharactersState {
 }
 
 class CharactersErrorState extends CharactersState {
-  CharactersErrorState({required this.errorMessage});
+  const CharactersErrorState({required this.errorMessage});
 
   final String errorMessage;
 

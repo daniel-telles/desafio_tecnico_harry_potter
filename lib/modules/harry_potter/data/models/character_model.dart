@@ -1,59 +1,40 @@
 import '../../domain/entities/character.dart';
 
-class CharacterDTO {
-  final String name;
-  final String species;
-  final String gender;
-  final String house;
-  final String dateOfBirth;
-  final bool wizard;
-  final String ancestry;
-  final String eyeColour;
-  final String hairColour;
-  final String patronus;
-  final bool hogwartsStudent;
-  final bool hogwartsStaff;
-  final String actor;
-  final bool alive;
-  final String image;
+class CharacterDTO extends Character {
 
-  CharacterDTO({
-    required this.name,
-    required this.species,
-    required this.gender,
-    required this.house,
-    required this.dateOfBirth,
-    required this.wizard,
-    required this.ancestry,
-    required this.eyeColour,
-    required this.hairColour,
-    required this.patronus,
-    required this.hogwartsStudent,
-    required this.hogwartsStaff,
-    required this.actor,
-    required this.alive,
-    required this.image,
-  });
-
-  Character toEntity() {
-    return Character(
-      name: name,
-      species: species,
-      gender: gender,
-      house: house,
-      dateOfBirth: dateOfBirth,
-      wizard: wizard,
-      ancestry: ancestry,
-      eyeColour: eyeColour,
-      hairColour: hairColour,
-      patronus: patronus,
-      hogwartsStudent: hogwartsStudent,
-      hogwartsStaff: hogwartsStaff,
-      actor: actor,
-      alive: alive,
-      image: image,
-    );
-  }
+  const CharacterDTO({
+    required final String name,
+    required final String species,
+    required final String gender,
+    required final String house,
+    required final String dateOfBirth,
+    required final bool wizard,
+    required final String ancestry,
+    required final String eyeColour,
+    required final String hairColour,
+    required final String patronus,
+    required final bool hogwartsStudent,
+    required final bool hogwartsStaff,
+    required final String actor,
+    required final bool alive,
+    required final String image,
+  }) : super(
+          name: name,
+          species: species,
+          gender: gender,
+          house: house,
+          dateOfBirth: dateOfBirth,
+          wizard: wizard,
+          ancestry: ancestry,
+          eyeColour: eyeColour,
+          hairColour: hairColour,
+          patronus: patronus,
+          hogwartsStudent: hogwartsStudent,
+          hogwartsStaff: hogwartsStaff,
+          actor: actor,
+          alive: alive,
+          image: image,
+        );
 
   factory CharacterDTO.fromJson(Map<String, dynamic> json) {
     return CharacterDTO(
@@ -61,7 +42,7 @@ class CharacterDTO {
       species: json["species"],
       gender: json["gender"],
       house: json["house"],
-      dateOfBirth: json["dateOfBirth"],
+      dateOfBirth: json["dateOfBirth"] ?? '',
       wizard: json["wizard"],
       ancestry: json["ancestry"],
       eyeColour: json["eyeColour"],
@@ -72,6 +53,26 @@ class CharacterDTO {
       actor: json["actor"],
       alive: json["alive"],
       image: json["image"],
+    );
+  }
+
+  factory CharacterDTO.fromEntity(Character character) {
+    return CharacterDTO(
+      name: character.name,
+      species: character.species,
+      gender: character.gender,
+      house: character.house,
+      dateOfBirth: character.dateOfBirth,
+      wizard: character.wizard,
+      ancestry: character.ancestry,
+      eyeColour: character.eyeColour,
+      hairColour: character.hairColour,
+      patronus: character.patronus,
+      hogwartsStudent: character.hogwartsStudent,
+      hogwartsStaff: character.hogwartsStaff,
+      actor: character.actor,
+      alive: character.alive,
+      image: character.image,
     );
   }
 }

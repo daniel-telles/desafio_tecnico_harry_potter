@@ -18,7 +18,7 @@ class CharactersCardWidget extends StatelessWidget {
           title: Row(
             children: [
               Text(
-                character.name!,
+                character.name,
                 style: const TextStyle(
                     fontFamily: 'RobotoSlab',
                     fontSize: 16.0,
@@ -26,7 +26,7 @@ class CharactersCardWidget extends StatelessWidget {
               ),
               const SizedBox(width: 6.0),
               Visibility(
-                visible: character.wizard!,
+                visible: character.wizard,
                 child: const Icon(
                   Icons.bolt_outlined,
                   size: 18.0,
@@ -39,26 +39,23 @@ class CharactersCardWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                character.house!,
+                character.house,
                 style: const TextStyle(
                     fontFamily: 'RobotoSlab', fontWeight: FontWeight.w400),
               ),
               Text(
-                character.hogwartsStudent!
+                character.hogwartsStudent
                     ? 'Hogwarts Student'
-                    : character.hogwartsStaff!
+                    : character.hogwartsStaff
                         ? 'Hogwarts Staff'
                         : 'Ocupação desconhecida',
-                style: const TextStyle(fontFamily: 'RobotoSlab',
-                fontSize: 12.0),
+                style:
+                    const TextStyle(fontFamily: 'RobotoSlab', fontSize: 12.0),
               )
             ],
           ),
           leading: CircleAvatar(
-            backgroundImage: NetworkImage(
-              character.image ??
-                  'https://img.freepik.com/premium-vector/witch-hat-vector-illustration_6427-69.jpg?w=740',
-            ),
+            backgroundImage: NetworkImage(character.image),
           ),
           children: [
             Column(
@@ -73,7 +70,7 @@ class CharactersCardWidget extends StatelessWidget {
                 const SizedBox(height: 2.0),
                 Text('Specie: ${character.species}'),
                 Text('Date of birth: ${character.dateOfBirth}'),
-                Text(character.wizard! ? 'Wizard' : ''),
+                Text(character.wizard ? 'Wizard' : ''),
                 Text('Ancestry: ${character.ancestry}'),
                 Text('Actor: ${character.actor}'),
                 const SizedBox(height: 12.0),
