@@ -10,3 +10,11 @@ class FetchCharactersEvent extends CharactersEvent {
 
   FetchCharactersEvent({this.house});
 }
+
+class ChangeHouseEvent extends CharactersEvent {
+  final String? house;
+
+
+  ChangeHouseEvent({this.house});
+
+}

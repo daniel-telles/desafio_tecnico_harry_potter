@@ -50,8 +50,7 @@ class CharactersCardWidget extends StatelessWidget {
                     : character.hogwartsStaff
                         ? 'Hogwarts Staff'
                         : 'Ocupação desconhecida',
-                style:
-                    const TextStyle(fontFamily: 'RobotoSlab', fontSize: 12.0),
+                style: itemsTextStyle,
               )
             ],
           ),
@@ -68,12 +67,19 @@ class CharactersCardWidget extends StatelessWidget {
                     'assets/custom_divider.png',
                   ),
                 ),
-                const SizedBox(height: 2.0),
-                Text('Specie: ${character.species}'),
-                Text('Date of birth: ${character.dateOfBirth}'),
-                Text(character.wizard ? 'Wizard' : ''),
-                Text('Ancestry: ${character.ancestry}'),
-                Text('Actor: ${character.actor}'),
+                const SizedBox(
+                  height: 2.0,
+                ),
+                Text('Specie: ${character.species}',
+                style: itemsTextStyle),
+                Text('Date of birth: ${character.dateOfBirth}',
+                style: itemsTextStyle),
+                Text(character.wizard ? 'Wizard' : '',
+                style: itemsTextStyle),
+                Text('Ancestry: ${character.ancestry}',
+                style: itemsTextStyle,),
+                Text('Actor: ${character.actor}',
+                style: itemsTextStyle),
                 const SizedBox(height: 12.0),
               ],
             ),
@@ -83,3 +89,6 @@ class CharactersCardWidget extends StatelessWidget {
     );
   }
 }
+
+TextStyle get itemsTextStyle =>
+    const TextStyle(fontFamily: 'RobotoSlab', fontSize: 12.0);

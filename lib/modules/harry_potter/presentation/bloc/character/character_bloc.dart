@@ -7,13 +7,25 @@ import 'character_state.dart';
 class CharactersBloc extends Bloc<CharactersEvent, CharactersState> {
   final GetCharacterUsecase getCharacterUsecase;
 
-  CharactersBloc({required this.getCharacterUsecase}) : super(const CharactersLoadingState()) {
+  CharactersBloc({required this.getCharacterUsecase})
+      : super(const CharactersLoadingState()) {
     on<FetchCharactersEvent>((event, emit) async {
       try {
         final characters = await getCharacterUsecase(house: event.house);
-        emit(CharactersSuccessState(characters:characters ));
+        emit(CharactersSuccessState(characters: characters));
       } catch (e) {
-        emit(const CharactersErrorState(errorMessage: 'Erro ao carregar personagens'));
+        emit(const CharactersErrorState(
+            errorMessage: 'Erro ao carregar personagens'));
+      }
+    });
+
+    on<ChangeHouseEvent>((event, emit) async {
+      try {
+        final characters = await getCharacterUsecase(house: event.house);
+        emit(CharactersSuccessState(characters: characters));
+      } catch (e) {
+        emit(const CharactersErrorState(
+            errorMessage: 'Erro ao carregar personagens'));
       }
     });
   }

@@ -13,22 +13,22 @@ class CharactersListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFF351113),
+        backgroundColor: const Color(0xFF413029),
         drawer: const DrawerWidget(),
         appBar: AppBar(
           iconTheme: const IconThemeData(
-            color: Color(0xFFD88300),
+            color: Color(0xFFE1CCA2),
           ),
           centerTitle: true,
           title: const Text(
             'NotSlytherin App',
             style: TextStyle(
               fontFamily: 'HarryPotter',
-              color: Color(0xFFD88300),
+              color: Color(0xFFE1CCA2),
               fontSize: 36.0,
             ),
           ),
-          backgroundColor: const Color(0xFF351113),
+          backgroundColor: const Color(0xFF413029),
         ),
         body: BlocBuilder<CharactersBloc, CharactersState>(
           builder: (context, state) {
@@ -52,6 +52,6 @@ class CharactersListPage extends StatelessWidget {
             }
           },
         ),
-        bottomNavigationBar: const BottomNavigationBarWidget());
+        bottomNavigationBar:  const BottomNavigationBarWidget());
   }
 }

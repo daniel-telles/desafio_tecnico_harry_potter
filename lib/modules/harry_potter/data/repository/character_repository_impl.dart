@@ -10,6 +10,12 @@ class CharacterRepositoryImpl implements CharacterRepository {
 
   @override
   Future<List<CharacterDTO>> getCharacters({String? house}) async {
-    return characterRemoteDatasource.getCharacters(house: house);
+    final List<CharacterDTO> characters =
+        await characterRemoteDatasource.getCharacters(house: house);
+    if (house == null) {
+      return characters;
+    } else {
+      return characters.where((character) => character.house == house).toList();
+    }
   }
 }
