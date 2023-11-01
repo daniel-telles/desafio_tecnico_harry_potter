@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../theme/app_theme.dart';
-import '../../pages/characters_page/characters_list_page.dart';
-import '../../pages/favorites_characters_page/favorites_characters_page.dart';
-import '../../pages/houses_page.dart';
+import '../../pages/houses_page/houses_page.dart';
 import 'drawer_items.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -33,20 +31,23 @@ class DrawerWidget extends StatelessWidget {
                   const SizedBox(height: 14.0),
                   Text(
                     'Your witch name',
-                    style: drawerTextStyle(fontSize: 18.0),
+                    style: AppTheme.textStyles.robotoSlab.copyWith(
+                        fontSize: 16.0, color: AppTheme.colors.lighterBrown),
                   ),
-                  Text('Your house', style: drawerTextStyle(fontSize: 12.0)),
+                  const SizedBox(height: 4.0),
+                  Text(
+                    'Your house',
+                    style: AppTheme.textStyles.robotoSlab.copyWith(
+                        fontSize: 12.0, color: AppTheme.colors.lighterBrown),
+                  ),
                   const SizedBox(height: 26.0),
                   Image.asset('assets/custom_divider.png',
                       color: AppTheme.colors.lighterBrown),
                   const SizedBox(height: 24.0),
-                  DrawerItems(
+                  const DrawerItems(
                     index: 0,
                     sectionText: 'Characters',
                     icon: Icons.person_3_rounded,
-                    route: MaterialPageRoute(
-                      builder: (context) => const CharactersListPage(),
-                    ),
                   ),
                   const SizedBox(height: 5.0),
                   DrawerItems(
@@ -57,31 +58,10 @@ class DrawerWidget extends StatelessWidget {
                       builder: (context) => const HousesPage(),
                     ),
                   ),
-                  const SizedBox(height: 5.0),
-                  DrawerItems(
-                    index: 2,
-                    sectionText: 'Spells',
-                    icon: Icons.bolt,
-                    route: MaterialPageRoute(
-                        builder: (context) => const HousesPage()),
-                  ),
-                  const SizedBox(height: 5.0),
-                  DrawerItems(
-                    index: 3,
-                    sectionText: 'Favorites',
-                    icon: Icons.favorite_rounded,
-                    route: MaterialPageRoute(
-                        builder: (context) => const FavoritesCharactersPage()),
-                  ),
                 ],
               ),
             ),
           ],
         ));
   }
-}
-
-TextStyle drawerTextStyle(
-    {double fontSize = 16.0, Color? color = const Color(0xFFE1CCA2)}) {
-  return TextStyle(fontFamily: 'RobotoSlab', fontSize: fontSize, color: color);
 }

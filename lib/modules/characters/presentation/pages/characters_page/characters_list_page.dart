@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../theme/app_theme.dart';
 import '../../bloc/character/character_bloc.dart';
 import '../../bloc/character/character_event.dart';
 import '../../bloc/character/character_state.dart';
+import '../../widgets/custom_app_bar.dart';
 import '../../widgets/drawer_widget/drawer_widget.dart';
 import 'widgets/bottom_navigation_bar_widget.dart';
 import 'widgets/characters_card_widget.dart';
@@ -14,22 +16,10 @@ class CharactersListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFF413029),
+        backgroundColor: AppTheme.colors.darkBrown,
         drawer: const DrawerWidget(),
-        appBar: AppBar(
-          iconTheme: const IconThemeData(
-            color: Color(0xFFE1CCA2),
-          ),
-          centerTitle: true,
-          title: const Text(
-            'NotSlytherin App',
-            style: TextStyle(
-              fontFamily: 'HarryPotter',
-              color: Color(0xFFE1CCA2),
-              fontSize: 36.0,
-            ),
-          ),
-          backgroundColor: const Color(0xFF413029),
+        appBar: const CustomAppBar(
+          title: 'NotSlytherin App',
         ),
         body: BlocBuilder<CharactersBloc, CharactersState>(
           builder: (context, state) {
@@ -60,7 +50,9 @@ class CharactersListPage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFE1CCA2)),
                         onPressed: () {
-                          context.read<CharactersBloc>().add(FetchCharactersEvent());
+                          context
+                              .read<CharactersBloc>()
+                              .add(FetchCharactersEvent());
                         },
                         child: const Text(
                           'Try again',

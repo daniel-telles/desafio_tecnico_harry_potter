@@ -7,6 +7,7 @@ abstract class AppColors {
   Color get gryffYellowDark;
   Color get gryffRed;
   Color get lighterYellow;
+  Color get black;
 }
 
 class AppColorsDefault extends AppColors {
@@ -27,4 +28,7 @@ class AppColorsDefault extends AppColors {
 
   @override
   Color get lighterYellow => const Color(0xFFFFF9C4);
+
+  @override
+  Color get black => const Color(0XFF000000);
 }

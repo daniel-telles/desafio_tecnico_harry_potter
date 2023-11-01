@@ -16,7 +16,7 @@ class ExpansionTileWidget extends StatelessWidget {
         dividerColor: Colors.transparent,
       ),
       child: ExpansionTile(
-        iconColor: Colors.black,
+        iconColor: AppTheme.colors.darkBrown,
         title: Row(
           children: [
             Text(
@@ -26,10 +26,10 @@ class ExpansionTileWidget extends StatelessWidget {
             const SizedBox(width: 6.0),
             Visibility(
               visible: character.wizard,
-              child: const Icon(
+              child: Icon(
                 Icons.bolt_outlined,
                 size: 18.0,
-                color: Color(0xFFEDB935),
+                color: AppTheme.colors.gryffYellow,
               ),
             ),
           ],
@@ -72,18 +72,6 @@ class ExpansionTileWidget extends StatelessWidget {
               CharacterInfos(
                 character: character,
               ),
-              // Text('Specie: ${character.species}',
-              //     style: AppTheme.textStyles.robotoSlab),
-              // Text('Date of birth: ${character.dateOfBirth}',
-              //     style: AppTheme.textStyles.robotoSlab),
-              // Text(character.wizard ? 'Wizard' : '',
-              //     style: AppTheme.textStyles.robotoSlab),
-              // Text(
-              //   'Ancestry: ${character.ancestry}',
-              //   style: AppTheme.textStyles.robotoSlab,
-              // ),
-              // Text('Actor: ${character.actor}',
-              //     style: AppTheme.textStyles.robotoSlab),
               const SizedBox(height: 12.0),
             ],
           ),
@@ -92,6 +80,3 @@ class ExpansionTileWidget extends StatelessWidget {
     );
   }
 }
-
-TextStyle get itemsTextStyle =>
-    const TextStyle(fontFamily: 'RobotoSlab', fontSize: 12.0);

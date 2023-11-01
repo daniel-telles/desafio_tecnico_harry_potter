@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/hp_api_url.dart';
 
@@ -14,15 +13,5 @@ class CharacterRemoteDatasource {
 
     final response = await dio.get(url);
     return List<Map<String, dynamic>>.from(response.data);
-  }
-
-  Future<void> addFavoriteCharacter(String characterId) async {
-    final prefs = await SharedPreferences.getInstance();
-    final favorites = prefs.getStringList('favorites') ?? [];
-
-    if (!favorites.contains(characterId)) {
-      favorites.add(characterId);
-      prefs.setStringList('favorites', favorites);
-    }
   }
 }

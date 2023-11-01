@@ -6,12 +6,12 @@ class DrawerItems extends StatefulWidget {
   const DrawerItems(
       {super.key,
       required this.sectionText,
-      required this.route,
+      this.route,
       required this.icon,
       required this.index});
 
   final String sectionText;
-  final MaterialPageRoute route;
+  final MaterialPageRoute? route;
   final IconData icon;
   final int index;
 
@@ -30,7 +30,7 @@ class _DrawerItemsState extends State<DrawerItems> {
           _selectedIndex = widget.index;
         });
         Navigator.pop(context);
-        Navigator.push(context, widget.route);
+        Navigator.push(context, widget.route!);
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,

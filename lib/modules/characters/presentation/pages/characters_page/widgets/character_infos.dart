@@ -13,7 +13,7 @@ class CharacterInfos extends StatelessWidget {
     final List<Map<String, String>> characterData = [
       {'Specie': character.species},
       {'Date of birth': character.dateOfBirth},
-      if (character.wizard) {'Wizard': ''},
+      {'Wizard': character.wizard ?'Yes' : 'No'},
       {'Ancestry': character.ancestry},
       {'Actor': character.actor},
     ];
