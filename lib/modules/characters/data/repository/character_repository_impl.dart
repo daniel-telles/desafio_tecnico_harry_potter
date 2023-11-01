@@ -18,5 +18,4 @@ class CharacterRepositoryImpl implements CharacterRepository {
 
     return characters;
   }
-
 }

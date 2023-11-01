@@ -41,22 +41,23 @@ class CharactersListPage extends StatelessWidget {
                   children: [
                     Text(
                       state.errorMessage,
-                      style: const TextStyle(
-                        color: Color(0xFFE1CCA2),
+                      style: TextStyle(
+                        color: AppTheme.colors.lighterBrown,
                       ),
                     ),
                     const SizedBox(height: 20),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFE1CCA2)),
+                            backgroundColor: AppTheme.colors.lighterBrown),
                         onPressed: () {
                           context
                               .read<CharactersBloc>()
                               .add(FetchCharactersEvent());
                         },
-                        child: const Text(
+                        child: Text(
                           'Try again',
-                          style: TextStyle(color: Color(0xFF413029)),
+                          style: AppTheme.textStyles.robotoSlab.copyWith(
+                              color: AppTheme.colors.darkBrown, fontSize: 12.0),
                         )),
                   ],
                 ),

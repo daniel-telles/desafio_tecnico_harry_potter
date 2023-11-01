@@ -27,16 +27,19 @@ class CharacterDTO extends Character {
 
   factory CharacterDTO.fromJson(Map<String, dynamic> json) {
     return CharacterDTO(
-      name: json["name"],
-      species: json["species"],
-      house: json["house"] ?? "unknown house",
+      name: json["name"]?.isEmpty ?? true ? 'unknown' : json["name"],
+      species: json["species"]?.isEmpty ?? true ? 'unknown' : json["species"],
+      house: json["house"]?.isEmpty ?? true ? 'unknown' : json["house"],
       dateOfBirth: json["dateOfBirth"] ?? 'unknown',
       wizard: json["wizard"],
-      ancestry: json["ancestry"] ?? 'unknown',
+      ancestry:
+          json["ancestry"]?.isEmpty ?? true ? 'unknown' : json["ancestry"],
       hogwartsStudent: json["hogwartsStudent"],
       hogwartsStaff: json["hogwartsStaff"],
-      actor: json["actor"] ?? 'unknown',
-      image: json["image"],
+      actor: json["actor"]?.isEmpty ?? true ? 'unknown' : json["actor"],
+      image: json["image"]?.isEmpty ?? true
+          ? 'https://img.freepik.com/premium-vector/wizard-hat-isolated-white-background_114835-28227.jpg'
+          : json["image"],
     );
   }
 
