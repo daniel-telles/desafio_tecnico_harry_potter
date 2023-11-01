@@ -8,7 +8,7 @@ import 'modules/characters/domain/usecases/get_characters_usecase.dart';
 import 'modules/characters/presentation/bloc/character/character_bloc.dart';
 import 'modules/characters/presentation/bloc/character/character_event.dart';
 import 'modules/characters/presentation/bloc/houses/bloc/houses_bloc.dart';
-import 'modules/characters/presentation/pages/characters_page/characters_page.dart';
+import 'modules/characters/presentation/pages/characters_page/characters_list_page.dart';
 
 void main() {
   runApp(HarryPotterApp());
@@ -22,6 +22,7 @@ class HarryPotterApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
       home: MultiBlocProvider(
         providers: [

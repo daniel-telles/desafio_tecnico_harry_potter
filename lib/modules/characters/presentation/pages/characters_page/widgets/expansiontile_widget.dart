@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../theme/app_theme.dart';
 import '../../../../domain/entities/character.dart';
+import 'character_infos.dart';
 
 class ExpansionTileWidget extends StatelessWidget {
   const ExpansionTileWidget({super.key, required this.character});
@@ -19,10 +21,7 @@ class ExpansionTileWidget extends StatelessWidget {
           children: [
             Text(
               character.name,
-              style: const TextStyle(
-                  fontFamily: 'RobotoSlab',
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.normal),
+              style: AppTheme.textStyles.robotoSlab.copyWith(fontSize: 16.0),
             ),
             const SizedBox(width: 6.0),
             Visibility(
@@ -40,8 +39,9 @@ class ExpansionTileWidget extends StatelessWidget {
           children: [
             Text(
               character.house,
-              style: const TextStyle(
-                  fontFamily: 'RobotoSlab', fontWeight: FontWeight.w400),
+              style: AppTheme.textStyles.robotoSlab.copyWith(
+                fontSize: 14.0,
+              ),
             ),
             Text(
               character.hogwartsStudent
@@ -49,7 +49,7 @@ class ExpansionTileWidget extends StatelessWidget {
                   : character.hogwartsStaff
                       ? 'Hogwarts Staff'
                       : 'Ocupação desconhecida',
-              style: itemsTextStyle,
+              style: AppTheme.textStyles.robotoSlab,
             )
           ],
         ),
@@ -69,15 +69,21 @@ class ExpansionTileWidget extends StatelessWidget {
               const SizedBox(
                 height: 2.0,
               ),
-              Text('Specie: ${character.species}', style: itemsTextStyle),
-              Text('Date of birth: ${character.dateOfBirth}',
-                  style: itemsTextStyle),
-              Text(character.wizard ? 'Wizard' : '', style: itemsTextStyle),
-              Text(
-                'Ancestry: ${character.ancestry}',
-                style: itemsTextStyle,
+              CharacterInfos(
+                character: character,
               ),
-              Text('Actor: ${character.actor}', style: itemsTextStyle),
+              // Text('Specie: ${character.species}',
+              //     style: AppTheme.textStyles.robotoSlab),
+              // Text('Date of birth: ${character.dateOfBirth}',
+              //     style: AppTheme.textStyles.robotoSlab),
+              // Text(character.wizard ? 'Wizard' : '',
+              //     style: AppTheme.textStyles.robotoSlab),
+              // Text(
+              //   'Ancestry: ${character.ancestry}',
+              //   style: AppTheme.textStyles.robotoSlab,
+              // ),
+              // Text('Actor: ${character.actor}',
+              //     style: AppTheme.textStyles.robotoSlab),
               const SizedBox(height: 12.0),
             ],
           ),

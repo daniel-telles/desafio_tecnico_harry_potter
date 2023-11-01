@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_icons/line_icons.dart';
 
+import '../../../../../../theme/app_theme.dart';
 import '../../../bloc/character/character_bloc.dart';
 import '../../../bloc/character/character_event.dart';
 import '../../../bloc/character/character_state.dart';
@@ -54,12 +55,12 @@ class BottomNavigationBarWidget extends StatelessWidget {
                     default:
                   }
                 },
-                backgroundColor: const Color(0xFF413029),
-                unselectedItemColor: Colors.yellow[100],
-                selectedItemColor: const Color(0xFFD88300),
+                backgroundColor: AppTheme.colors.darkBrown,
+                unselectedItemColor: AppTheme.colors.lighterYellow,
+                selectedItemColor: AppTheme.colors.gryffYellowDark,
                 type: BottomNavigationBarType.fixed,
-                selectedLabelStyle: itemsTextStyle,
-                unselectedLabelStyle: itemsTextStyle,
+                selectedLabelStyle: AppTheme.textStyles.robotoSlab.copyWith(fontSize: 11.0),
+                unselectedLabelStyle: AppTheme.textStyles.robotoSlab.copyWith(fontSize: 11.0),
                 items: const [
                   BottomNavigationBarItem(
                     icon: Icon(Icons.home),

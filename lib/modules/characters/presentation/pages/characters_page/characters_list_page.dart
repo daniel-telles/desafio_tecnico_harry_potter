@@ -60,9 +60,7 @@ class CharactersListPage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFE1CCA2)),
                         onPressed: () {
-                          context
-                              .read<CharactersBloc>()
-                              .add(FetchCharactersEvent());
+                          context.read<CharactersBloc>().add(FetchCharactersEvent());
                         },
                         child: const Text(
                           'Try again',

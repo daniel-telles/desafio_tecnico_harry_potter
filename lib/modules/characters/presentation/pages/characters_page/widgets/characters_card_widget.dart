@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../../theme/app_theme.dart';
 import '../../../../domain/entities/character.dart';
 import 'expansiontile_widget.dart';
 
@@ -11,7 +12,7 @@ class CharactersCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        color: Colors.yellow[100],
+        color: AppTheme.colors.lighterYellow,
         child: ExpansionTileWidget(character: character));
   }
 }

@@ -18,4 +18,9 @@ class CharacterRepositoryImpl implements CharacterRepository {
 
     return characters;
   }
+
+  @override
+  Future<void> addFavoriteCharacter({required String characterId}) {
+    return characterRemoteDatasource.addFavoriteCharacter(characterId);
+  }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../pages/characters_page/characters_page.dart';
+import '../../../../../theme/app_theme.dart';
+import '../../pages/characters_page/characters_list_page.dart';
+import '../../pages/favorites_characters_page/favorites_characters_page.dart';
 import '../../pages/houses_page.dart';
 import 'drawer_items.dart';
 
@@ -10,7 +12,7 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: const Color(0xFF750001),
+        backgroundColor: AppTheme.colors.gryffRed,
         width: MediaQuery.of(context).size.width * 0.60,
         child: ListView(
           children: [
@@ -21,7 +23,7 @@ class DrawerWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: const Color(0xFFE1CCA2),
+                    backgroundColor: AppTheme.colors.lighterYellow,
                     radius: 48.0,
                     child: Image.asset(
                       'assets/hp_glasses.png',
@@ -36,7 +38,7 @@ class DrawerWidget extends StatelessWidget {
                   Text('Your house', style: drawerTextStyle(fontSize: 12.0)),
                   const SizedBox(height: 26.0),
                   Image.asset('assets/custom_divider.png',
-                      color: const Color(0xFFE1CCA2)),
+                      color: AppTheme.colors.lighterBrown),
                   const SizedBox(height: 24.0),
                   DrawerItems(
                     index: 0,
@@ -69,7 +71,7 @@ class DrawerWidget extends StatelessWidget {
                     sectionText: 'Favorites',
                     icon: Icons.favorite_rounded,
                     route: MaterialPageRoute(
-                        builder: (context) => const HousesPage()),
+                        builder: (context) => const FavoritesCharactersPage()),
                   ),
                 ],
               ),

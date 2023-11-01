@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../theme/app_theme.dart';
+
 class DrawerItems extends StatefulWidget {
   const DrawerItems(
       {super.key,
@@ -35,24 +37,22 @@ class _DrawerItemsState extends State<DrawerItems> {
         children: [
           Icon(widget.icon,
               color: isSelected
-                  ? const Color(0xFFFFC500)
-                  : const Color(0xFFE1CCA2)),
+                  ? AppTheme.colors.gryffYellow
+                  : AppTheme.colors.lighterBrown),
           const SizedBox(
             width: 10.0,
           ),
-          Text(
-            widget.sectionText,
-            style: isSelected
-                ? drawerTextStyle(color: const Color(0xFFFFC500))
-                : drawerTextStyle(),
-          ),
+          Text(widget.sectionText, style: drawerTextStyle(isSelected)),
         ],
       ),
     );
   }
 }
 
-TextStyle drawerTextStyle(
-    {double fontSize = 16.0, Color? color = const Color(0xFFE1CCA2)}) {
-  return TextStyle(fontFamily: 'RobotoSlab', fontSize: fontSize, color: color);
+TextStyle drawerTextStyle(bool isSelected) {
+  return AppTheme.textStyles.robotoSlab.copyWith(
+      fontSize: 16,
+      color: isSelected
+          ? AppTheme.colors.gryffYellow
+          : AppTheme.colors.lighterBrown);
 }
