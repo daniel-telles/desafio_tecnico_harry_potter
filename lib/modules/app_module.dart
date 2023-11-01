@@ -1,6 +1,7 @@
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/bloc/character/character_bloc.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/pages/characters_page/characters_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import 'characters/presentation/bloc/character/character_bloc.dart';
+import 'characters/presentation/pages/characters_page/characters_page.dart';
 
 class AppModule extends Module {
   @override

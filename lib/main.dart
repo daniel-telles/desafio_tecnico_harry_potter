@@ -1,14 +1,14 @@
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/data/data_sources/character_remote_datasource.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/data/repository/character_repository_impl.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/domain/usecases/get_characters_usecase.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/bloc/houses/bloc/houses_bloc.dart';
-import 'package:desafio_tecnico_harry_potter/modules/harry_potter/presentation/pages/characters_page/characters_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'modules/harry_potter/presentation/bloc/character/character_bloc.dart';
-import 'modules/harry_potter/presentation/bloc/character/character_event.dart';
+import 'modules/characters/data/data_sources/character_remote_datasource.dart';
+import 'modules/characters/data/repository/character_repository_impl.dart';
+import 'modules/characters/domain/usecases/get_characters_usecase.dart';
+import 'modules/characters/presentation/bloc/character/character_bloc.dart';
+import 'modules/characters/presentation/bloc/character/character_event.dart';
+import 'modules/characters/presentation/bloc/houses/bloc/houses_bloc.dart';
+import 'modules/characters/presentation/pages/characters_page/characters_page.dart';
 
 void main() {
   runApp(HarryPotterApp());
@@ -23,11 +23,6 @@ class HarryPotterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sonserina Não',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: MultiBlocProvider(
         providers: [
           BlocProvider(
